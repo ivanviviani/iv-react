@@ -2,9 +2,8 @@
     min-height: 100dvh;
     display: flex;
     flex-flow: column;
-    gap: 5rem;
 
-    &__main {
+    & > main {
         flex: 1 0 auto;
     }
 }

@@ -1,30 +1,37 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { bem } from '../utils/ComponentUtils';
-import Counter from './atoms/counter/Counter';
-import Text from './atoms/text/Text';
-import './App.scss';
-import Basic from './layouts/basic/Basic';
 import Footer from './components/footer/Footer';
+import PageHome from './pages/Home';
+import PageNotFound from './pages/NotFound';
+import './App.scss';
 const cl = bem('app');
 
 function App() {
-    const plainText =
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fugiat officiis sapiente ad odit. Voluptatem totam, inventore perspiciatis iste, aliquam at debitis animi corporis rem distinctio officia blanditiis aspernatur exercitationem?';
-    const htmlText = `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fugiat officiis sapiente ad odit. Voluptatem totam, inventore perspiciatis iste, aliquam at debitis animi corporis rem distinctio officia blanditiis aspernatur exercitationem?</p>`;
+    const NOT_FOUND_PATH = '/not-found';
     return (
-        <div className={cl()}>
-            <main
-                id="main"
-                className={cl('main')}
-            >
-                <Basic>
-                    <Text
-                        text={htmlText}
-                        textIsRich={true}
-                    />
-                    <Text text={plainText} />
-                    <Counter />
-                </Basic>
-            </main>
+        <div
+            id="app"
+            className={cl()}
+        >
+            <Routes>
+                <Route
+                    path="/"
+                    element={<PageHome />}
+                />
+                <Route
+                    path={NOT_FOUND_PATH}
+                    element={<PageNotFound />}
+                />
+                <Route
+                    path="*"
+                    element={
+                        <Navigate
+                            to={NOT_FOUND_PATH}
+                            replace
+                        />
+                    }
+                />
+            </Routes>
             <Footer />
         </div>
     );
