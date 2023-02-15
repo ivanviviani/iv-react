@@ -1,0 +1,10 @@
+.a-counter {
+    &__button {
+        color: red;
+        text-decoration: underline;
+    }
+
+    &__text {
+        color: black;
+    }
+}

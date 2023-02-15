@@ -1,0 +1,19 @@
+@import './styles/resets/normalize.scss';
+@import './styles/resets/reset.scss';
+@import './styles/resets/typography.scss';
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff;
+    color: #222;
+    // TODO: use var
+}
