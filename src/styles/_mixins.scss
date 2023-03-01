@@ -1,0 +1,219 @@
+@use './variables' as *;
+@use 'sass:color';
+
+//
+//  RESPOND ORIENTATION
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-orientation('portrait') {}
+@mixin respond-orientation($orientation: false) {
+    @if $orientation == 'landscape' or $orientation == 'portrait' {
+        // Write the media query.
+        @media (orientation: $orientation) {
+            @content;
+        }
+    } @else {
+        // Log a warning.
+        @warn 'Invalid orientation value: #{$orientation}.';
+    }
+}
+
+@mixin respond-landscape() {
+    // Write the media query.
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin respond-portrait() {
+    // Write the media query.
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint, $orientation: false) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @if $orientation == 'landscape' or $orientation == 'portrait' {
+            // Write the media query.
+            @media (min-width: $breakpoint-value) and (orientation: $orientation) {
+                @content;
+            }
+        } @else {
+            // Write the media query.
+            @media (min-width: $breakpoint-value) {
+                @content;
+            }
+        }
+
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+//
+//  RESPOND BELOW
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-below(sm) {}
+@mixin respond-below($breakpoint, $orientation: false) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @if $orientation == 'landscape' or $orientation == 'portrait' {
+            // Write the media query.
+            @media (max-width: ($breakpoint-value - 1)) and (orientation: $orientation) {
+                @content;
+            }
+        } @else {
+            // Write the media query.
+            @media (max-width: ($breakpoint-value - 1)) {
+                @content;
+            }
+        }
+
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+//
+//  RESPOND BETWEEN
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-between(sm, md) {}
+@mixin respond-between($lower, $upper, $orientation: false) {
+    // If both the lower and upper breakpoints exist in the map.
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper)
+    {
+        // Get the lower and upper breakpoints.
+        $lower-breakpoint: map-get($breakpoints, $lower);
+        $upper-breakpoint: map-get($breakpoints, $upper);
+
+        @if $orientation == 'landscape' or $orientation == 'portrait' {
+            // Write the media query.
+            @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) and (orientation: $orientation) {
+                @content;
+            }
+        } @else {
+            // Write the media query.
+            @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+                @content;
+            }
+        }
+
+        // If one or both of the breakpoints don't exist.
+    } @else {
+        // If lower breakpoint is invalid.
+        @if (map-has-key($breakpoints, $lower) == false) {
+            // Log a warning.
+            @warn 'Your lower breakpoint was invalid: #{$lower}.';
+        }
+
+        // If upper breakpoint is invalid.
+        @if (map-has-key($breakpoints, $upper) == false) {
+            // Log a warning.
+            @warn 'Your upper breakpoint was invalid: #{$upper}.';
+        }
+    }
+}
+
+//
+//  RESPOND PRINT
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-print() {}
+@mixin respond-print() {
+    // Write the media query.
+    @media print {
+        @content;
+    }
+}
+
+//
+//  BROWSER SPECIFIC
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Target css for IE10/11/Edge only
+// USAGE: @include ie-only(&){}
+
+@mixin ie-only($isEdge: false) {
+    @media screen and (-ms-high-contrast: active),
+        screen and (-ms-high-contrast: none) {
+        @content;
+    }
+
+    @if $isEdge == true {
+        @supports (-ms-ime-align: auto) {
+            @content;
+        }
+    }
+}
+
+// Target css for Firefox only
+// USAGE: @include ff-only(&){}
+
+@mixin ff-only() {
+    @supports (-moz-appearance: none) {
+        @content;
+    }
+}
+
+//
+//  HARDWARE SPECIFIC
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Exclude device with no hover funcionality (mobile devices)
+// USAGE: @include mouse-only(){}
+
+@mixin mouse-only($nomobile: true) {
+    @if $nomobile == true {
+        @media (hover: hover), (-ms-high-contrast: none) {
+            @content;
+        }
+    } @else {
+        @media (hover: none) {
+            @content;
+        }
+    }
+}
+
+@mixin _raw($string) {
+    $string: '*/#{$string}/*';
+    /*#{$string}*/
+}
+
+//
+//  COLORS
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+    #{$color}: unquote('hsl(#{$hue}, #{$saturation}, #{$lightness})');
+    #{$color}-h: #{$hue};
+    #{$color}-s: #{$saturation};
+    #{$color}-l: #{$lightness};
+}
+
+@mixin defineColorHex($color, $hex) {
+    #{$color}: unquote(
+        'hsl(#{strip-unit(color.hue($hex))}, #{color.saturation($hex)}, #{color.lightness($hex)})'
+    );
+    #{$color}-h: #{strip-unit(color.hue($hex))};
+    #{$color}-s: #{color.saturation($hex)};
+    #{$color}-l: #{color.lightness($hex)};
+}

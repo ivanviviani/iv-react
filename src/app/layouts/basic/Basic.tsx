@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { Children, ReactNode, useRef } from 'react';
 import { bem } from '../../../utils/ComponentUtils';
 import './Basic.scss';
 const cl = bem('l-basic');
@@ -6,21 +6,23 @@ const cl = bem('l-basic');
 function LayoutBasic({
     children,
     wrapMain = false,
+    gap = false,
 }: {
-    children?: ReactNode | ReactNode[];
+    children?: ReactNode;
     wrapMain?: boolean;
+    gap?: boolean;
 }) {
-    const root = useRef(null);
-    const rootProps = {
-        className: cl(),
-        ref: root,
-    };
+    const rootRef = useRef(null);
+    const childrenArray = Children.toArray(children);
+    const childElements = Children.map(childrenArray, (child, i) =>
+        wrapLayoutItem(child, i)
+    );
 
-    const childElements =
-        !!children &&
-        (Array.isArray(children)
-            ? children?.map((child, i) => wrapLayoutItem(child, i))
-            : wrapLayoutItem(children, 0));
+    const rootProps = {
+        className: `${cl()} ${gap ? cl('', 'gap') : ''}`,
+        ref: rootRef,
+        'data-num-items': childrenArray.length ?? 0,
+    };
 
     return wrapMain ? (
         <main

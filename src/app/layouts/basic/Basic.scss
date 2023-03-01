@@ -1,6 +1,12 @@
 .l-basic {
     display: flex;
     flex-flow: column;
-    gap: 4rem;
-    background-color: antiquewhite;
+
+    &--gap {
+        gap: 2rem;
+    }
+
+    &[data-num-items='1'] > &__item {
+        flex-grow: 1;
+    }
 }

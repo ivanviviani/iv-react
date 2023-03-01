@@ -1,0 +1,7 @@
+@use '../../../styles/functions' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+
+.c-profile-experience {
+    padding: rem(24px) rem(16px) 0;
+}

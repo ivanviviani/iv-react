@@ -1,0 +1,8 @@
+@use './variables' as *;
+@use 'sass:math';
+
+//Calculate rem sizing based on px and default text-base-size
+//usage: rem(24px)
+@function rem($size) {
+    @return math.div($size, $text-base-size) * 1rem;
+}

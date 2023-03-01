@@ -1,6 +1,6 @@
-@import './styles/resets/normalize.scss';
-@import './styles/resets/reset.scss';
-@import './styles/resets/typography.scss';
+@use './styles/resets/normalize';
+@use './styles/resets/reset';
+@use './styles/resets/typography';
 
 :root {
     font-synthesis: none;
