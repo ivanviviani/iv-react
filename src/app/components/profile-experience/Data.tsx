@@ -1,42 +1,46 @@
 import { uh } from '../../../utils/ComponentUtils';
 
 export const Data = {
+    title: 'Experience',
     experiences: [
         {
             image: {
-                src: uh(100),
+                src: uh(500),
                 alt: 'Aktive Reply logo',
             },
             title: 'IT Consultant - AEM Developer',
-            period: 'October 2020 - Present &bull; 2 years and 6 months',
+            period: `<time datetime="2020-10">October 2020</time> - <time datetime="${
+                new Date().toISOString().split('T')[0]
+            }">Present</time>`,
+            duration: '<time datetime="P2Y6M">2 years and 6 months</time>',
             place: 'Verona, Italy',
             description: `
                 <p>
-                    Certified Adobe Experience Manager Sites
-                    developer expert specializzato in:
+                    <span style="font-weight: 500">Certified Adobe Experience Manager Sites
+                    developer expert</span> specializzato in:
                 </p>
-                <ul>
+                <ul role="list">
                     <li>
-                        Template di pagina AEM con responsive grid e
-                        policy
+                        <p>Template di pagina AEM con responsive grid e
+                        policy</p>
                     </li>
                     <li>
-                        Componenti AEM lato frontend (HTML,
+                        <p>Componenti AEM lato frontend (HTML,
                         CSS/Sass, JavaScript) e lato server (uso del
                         linguaggio Sightly/HTL, dialog Granite UI,
-                        modelli Sling, servizi OSGi e servlet)
+                        modelli Sling, servizi OSGi e servlet)</p>
                     </li>
                     <li>
-                        Personalizzazione di componenti Granite per
+                        <p>Personalizzazione di componenti Granite per
                         una migliore configurazione dei componenti
-                        AEM
+                        AEM</p>
                     </li>
-                    <li>Configurazione di dispatcher AEM</li>
+                    <li><p>Configurazione di dispatcher AEM</p></li>
                     <li>
-                        Regole di accessibilità WCAG e adattamento
-                        di siti web
+                        <p>Regole di accessibilità WCAG e adattamento
+                        di siti web</p>
                     </li>
-                    <li>Supporto tecnico al team editoriale</li>
+                    <li><p>Supporto tecnico al team editoriale</p></li>
                 </ul>
             `,
         },

@@ -1,0 +1,20 @@
+$text-base-size: 16px;
+$max-legible-chars: 65ch;
+
+$breakpoints: (
+    m: 768px,
+    l: 1024px,
+    xl: 1440px,
+);
+
+$container-wmax: 1024px;
+$container-wpad: 16px;
+
+$layout-width-dsk: min(
+    #{map-get($breakpoints, l)},
+    100% - #{2 * $container-wpad}
+);
+$layout-width-tbl: min(
+    #{map-get($breakpoints, m)},
+    100% - #{2 * $container-wpad}
+);

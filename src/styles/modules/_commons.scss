@@ -1,0 +1,11 @@
+@use './variables' as *;
+
+%layout-item-dsk {
+    width: $layout-width-dsk;
+    margin-inline: auto;
+}
+
+%layout-item-tbl {
+    width: $layout-width-tbl;
+    margin-inline: auto;
+}

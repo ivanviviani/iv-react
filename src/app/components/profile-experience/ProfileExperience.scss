@@ -1,7 +1,72 @@
-@use '../../../styles/functions' as *;
-@use '../../../styles/mixins' as *;
-@use '../../../styles/variables' as *;
+@use '../../../styles/globals' as *;
 
 .c-profile-experience {
-    padding: rem(24px) rem(16px) 0;
+    $root: &;
+    @extend %layout-item-tbl;
+    padding-top: rem(48px);
+
+    & > h3:first-child {
+        font-size: rem(22px);
+        font-weight: 600;
+    }
+
+    & > ul {
+        padding-top: rem(28px);
+    }
+
+    &__item {
+        & > div:first-child {
+            display: flex;
+            gap: rem(16px);
+
+            & > img:first-child {
+                max-width: 80px;
+                aspect-ratio: 1 / 1;
+                object-fit: contain;
+                align-self: flex-start;
+            }
+
+            & > div:nth-child(2) {
+                display: flex;
+                flex-flow: column;
+                gap: rem(4px);
+
+                #{$root}__item-title {
+                    font-size: rem(18px);
+                    font-weight: 500;
+                }
+
+                #{$root}__item-place {
+                    font-size: rem(14px);
+                    color: gray;
+                }
+            }
+        }
+
+        & > div:nth-child(2) {
+            padding-top: rem(20px);
+
+            & > ul {
+                padding-top: rem(16px);
+                list-style-position: inside;
+                margin-inline-start: rem(24px);
+                max-width: $max-legible-chars;
+
+                & > li {
+                    display: flex;
+                    gap: rem(8px);
+                }
+
+                & > li::before {
+                    content: '•';
+                    font-size: rem(20px);
+                    line-height: rem(20px);
+                }
+
+                & > li:not(:last-child) {
+                    padding-bottom: rem(8px);
+                }
+            }
+        }
+    }
 }

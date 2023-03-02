@@ -1,0 +1,19 @@
+@use '../../../styles/globals' as *;
+
+.c-profile-certifications {
+    $root: &;
+    @extend %layout-item-tbl;
+    padding-top: rem(48px);
+
+    & > h3:first-child {
+        font-size: rem(22px);
+        font-weight: 600;
+    }
+
+    &__item {
+        #{$root}__item-image {
+            max-width: 80px;
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
