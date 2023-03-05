@@ -66,4 +66,8 @@ export const Data = {
             `,
         },
     ],
+    labels: {
+        workPeriod: 'Work period:',
+        workDuration: 'Work duration:',
+    },
 };

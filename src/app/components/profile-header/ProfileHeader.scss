@@ -43,7 +43,7 @@
 
     &__bio {
         @extend %layout-item-tbl;
-        padding-top: rem(20px);
+        padding-top: rem(32px);
         display: flex;
         flex-flow: column;
         gap: rem(12px);
@@ -52,17 +52,19 @@
             gap: rem(16px);
         }
 
+        @include respond-above(m) {
+            padding-top: rem(48px);
+        }
+
         & > h1 {
             font-size: rem(24px);
-            font-weight: 500;
+            font-weight: 600;
 
             @include respond-below(m, 'landscape') {
                 font-size: rem(28px);
-                font-weight: 600;
             }
             @include respond-above(m) {
                 font-size: rem(28px);
-                font-weight: 600;
             }
         }
 
@@ -111,7 +113,7 @@
         }
 
         & > a {
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: underline;
 
             &[data-bullet-after]::after {

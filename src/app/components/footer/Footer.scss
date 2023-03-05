@@ -2,13 +2,25 @@
 
 .s-footer {
     $root: &;
-    margin-top: rem(32px);
+    margin-top: rem(48px);
     background-color: $bg-footer;
 
     & > div:first-child {
         @include containerB(m);
         padding-top: rem(32px);
         padding-bottom: rem(32px);
+        display: flex;
+        flex-flow: column;
+        gap: rem(16px);
+
+        #{$root}__contact-links {
+            text-align: center;
+
+            & > a {
+                font-weight: 600;
+                text-decoration: underline;
+            }
+        }
 
         #{$root}__copyright {
             text-align: center;

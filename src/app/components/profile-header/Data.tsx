@@ -1,5 +1,6 @@
 import { uh } from '../../../utils/ComponentUtils';
 import { breakpointInPixels } from '../../../utils/Utils';
+import { CommonData } from '../CommonData';
 
 export const Data = {
     coverImage: {
@@ -57,21 +58,5 @@ export const Data = {
         },
     },
     contactLinksIntro: 'Contact me on:',
-    contactLinks: [
-        {
-            label: 'Email',
-            href: 'mailto:ivan.viviani.vr@gmail.com',
-            target: '_blank',
-        },
-        {
-            label: 'LinkedIn',
-            href: 'https://www.linkedin.com/in/ivanviviani',
-            target: '_blank',
-        },
-        {
-            label: 'Github',
-            href: 'https://www.github.com/ivanviviani',
-            target: '_blank',
-        },
-    ],
+    contactLinks: CommonData.contactLinks,
 };

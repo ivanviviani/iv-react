@@ -19,6 +19,7 @@ function ProfileExperience() {
                 {Data.experiences?.map((e, i) => (
                     <ProfileExperienceItem
                         {...e}
+                        labels={Data.labels}
                         key={i}
                     />
                 ))}
@@ -33,6 +34,10 @@ function ProfileExperienceItem({
     period,
     place,
     description,
+    labels = {
+        workPeriod: 'Work period:',
+        workDuration: 'Work duration',
+    },
 }: {
     company: {
         name: string;
@@ -46,6 +51,10 @@ function ProfileExperienceItem({
         link: LinkProps;
     };
     description: string;
+    labels: {
+        workPeriod?: string;
+        workDuration?: string;
+    };
 }) {
     const periodExtremes = [period[0], period[1]];
     const stringExtremes =
@@ -93,15 +102,26 @@ function ProfileExperienceItem({
                             label={company.name}
                         />
                     </p>
-                    <p>
-                        {periodExtremes
-                            .map((t) => <Time {...t} />)
-                            .reduce(separateJSXArrayReducer('-'))}
-                    </p>
+                    {periodExtremes && (
+                        <p>
+                            <span className="sr-only">{labels.workPeriod}</span>
+                            {periodExtremes
+                                .map((t) => <Time {...t} />)
+                                .reduce(separateJSXArrayReducer('-'))}
+                        </p>
+                    )}
                     {timeDuration && durationText && (
-                        <Time
-                            {...{ dateTime: timeDuration, text: durationText }}
-                        />
+                        <p>
+                            <span className="sr-only">
+                                {labels.workDuration}
+                            </span>
+                            <Time
+                                {...{
+                                    dateTime: timeDuration,
+                                    text: durationText,
+                                }}
+                            />
+                        </p>
                     )}
                     <p className={cl('item-place')}>
                         <Link
