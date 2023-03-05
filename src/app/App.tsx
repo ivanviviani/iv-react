@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { bem } from '../utils/ComponentUtils';
-import Footer from './components/footer/Footer';
 import PageHome from './pages/Home';
 import PageNotFound from './pages/NotFound';
 import './App.scss';

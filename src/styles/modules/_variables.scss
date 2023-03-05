@@ -18,3 +18,12 @@ $layout-width-tbl: min(
     #{map-get($breakpoints, m)},
     100% - #{2 * $container-wpad}
 );
+
+$bullet: '•';
+$rocket: '🚀';
+
+// colors
+$cl-black: hsl(0, 0%, 13%);
+$cl-gray: hsl(0, 0%, 40%);
+$cl-white: hsl(0, 0%, 100%);
+$bg-footer: hsl(0, 0%, 85%);

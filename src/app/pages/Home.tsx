@@ -1,3 +1,4 @@
+import Footer from '../components/footer/Footer';
 import ProfileCertifications from '../components/profile-certifications/ProfileCertifications';
 import ProfileExperience from '../components/profile-experience/ProfileExperience';
 import ProfileHeader from '../components/profile-header/ProfileHeader';
@@ -6,12 +7,15 @@ import LayoutBasic from '../layouts/basic/Basic';
 
 function PageHome() {
     return (
-        <LayoutBasic wrapMain={true}>
-            <ProfileHeader />
-            <ProfileExperience />
-            <ProfileCertifications />
-            <ProfileLanguages />
-        </LayoutBasic>
+        <>
+            <LayoutBasic wrapMain={true}>
+                <ProfileHeader />
+                <ProfileExperience />
+                <ProfileCertifications />
+                <ProfileLanguages />
+            </LayoutBasic>
+            <Footer />
+        </>
     );
 }
 

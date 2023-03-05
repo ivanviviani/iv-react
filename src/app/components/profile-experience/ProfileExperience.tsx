@@ -1,6 +1,12 @@
 import { bem } from '../../../utils/ComponentUtils';
-import { sanitizeHTML } from '../../../utils/Utils';
-import Image from '../../atoms/image/Image';
+import {
+    getDurationYearsMonths,
+    sanitizeHTML,
+    separateJSXArrayReducer,
+} from '../../../utils/Utils';
+import Image, { ImageProps } from '../../atoms/image/Image';
+import Link, { LinkProps } from '../../atoms/link/Link';
+import Time, { TimeProps } from '../../atoms/time/Time';
 import { Data } from './Data';
 import './ProfileExperience.scss';
 const cl = bem('c-profile-experience');
@@ -22,41 +28,88 @@ function ProfileExperience() {
 }
 
 function ProfileExperienceItem({
-    image,
+    company,
     title,
     period,
-    duration,
     place,
     description,
 }: {
-    index?: number;
-    image: {
-        src: string;
-        alt: string;
+    company: {
+        name: string;
+        link: LinkProps;
+        image: ImageProps;
     };
     title: string;
-    period: string;
-    duration: string;
-    place: string;
+    period: TimeProps[];
+    place: {
+        text: string;
+        link: LinkProps;
+    };
     description: string;
 }) {
+    const periodExtremes = [period[0], period[1]];
+    const stringExtremes =
+        typeof period[0].dateTime === 'string' &&
+        typeof period[1].dateTime === 'string';
+
+    const timeDuration = stringExtremes
+        ? getDurationYearsMonths(
+              new Date(period[0].dateTime as string),
+              new Date(period[1].dateTime as string)
+          )
+        : undefined;
+    const durationText = !timeDuration
+        ? ''
+        : `${timeDuration.years > 0 ? timeDuration.years + ' years' : ''}`
+              .concat(
+                  `${
+                      timeDuration.years > 0 && timeDuration.months > 0
+                          ? ' and '
+                          : ''
+                  }`
+              )
+              .concat(
+                  `${
+                      timeDuration.years > 0 && timeDuration.months > 0
+                          ? timeDuration.months + ' months'
+                          : 'months'
+                  }`
+              );
+
     return (
         <li className={cl('item')}>
             <div>
-                <Image {...image} />
+                <Link
+                    {...company.link}
+                    title={company.name}
+                >
+                    <Image {...company.image} />
+                </Link>
                 <div>
                     <h4 className={cl('item-title')}>{title}</h4>
-                    <p
-                        dangerouslySetInnerHTML={{
-                            __html: sanitizeHTML(period),
-                        }}
-                    ></p>
-                    <p
-                        dangerouslySetInnerHTML={{
-                            __html: sanitizeHTML(duration),
-                        }}
-                    ></p>
-                    <p className={cl('item-place')}>{place}</p>
+                    <p className={cl('item-company')}>
+                        <Link
+                            {...company.link}
+                            label={company.name}
+                        />
+                    </p>
+                    <p>
+                        {periodExtremes
+                            .map((t) => <Time {...t} />)
+                            .reduce(separateJSXArrayReducer('-'))}
+                    </p>
+                    {timeDuration && durationText && (
+                        <Time
+                            {...{ dateTime: timeDuration, text: durationText }}
+                        />
+                    )}
+                    <p className={cl('item-place')}>
+                        <Link
+                            {...place.link}
+                            label={place.text}
+                        />{' '}
+                        🌍
+                    </p>
                 </div>
             </div>
             <div

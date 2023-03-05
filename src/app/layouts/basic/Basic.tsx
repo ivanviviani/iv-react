@@ -19,7 +19,7 @@ function LayoutBasic({
     );
 
     const rootProps = {
-        className: `${cl()} ${gap ? cl('', 'gap') : ''}`,
+        className: `${cl()} ${gap ? cl('', 'gap') : ''}`.trim(),
         ref: rootRef,
         'data-num-items': childrenArray.length ?? 0,
     };

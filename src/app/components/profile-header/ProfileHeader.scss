@@ -2,6 +2,8 @@
 @use 'sass:math';
 
 .c-profile-header {
+    $root: &;
+
     &__header {
         position: relative;
     }
@@ -26,7 +28,7 @@
         width: $size-portrait;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
-        border: 4px solid white;
+        border: 4px solid $cl-white;
         object-fit: contain;
         position: absolute;
         top: rem(40px);
@@ -75,13 +77,17 @@
 
         & > p {
             font-size: rem(14px);
-            color: gray;
+            color: $cl-gray;
 
             @include respond-below(m, 'landscape') {
                 font-size: rem(16px);
             }
             @include respond-above(m) {
                 font-size: rem(16px);
+            }
+
+            & > a {
+                text-decoration: underline;
             }
         }
     }
@@ -110,7 +116,7 @@
 
             &[data-bullet-after]::after {
                 display: inline-block;
-                content: '•';
+                content: $bullet;
                 margin-inline-start: rem(8px);
             }
         }

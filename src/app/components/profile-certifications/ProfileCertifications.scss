@@ -44,20 +44,20 @@
             #{$root}__item-issuer {
                 width: fit-content;
                 font-size: rem(14px);
-                color: gray;
+                color: $cl-gray;
                 text-decoration: underline;
             }
 
             #{$root}__item-view-credential {
                 width: fit-content;
                 font-weight: 600;
-                border: 2px solid #222;
+                border: 2px solid $cl-black;
                 border-radius: rem(16px);
                 padding: rem(4px) rem(12px);
                 margin-top: rem(8px);
 
                 &::after {
-                    content: '🚀';
+                    content: $rocket;
                     margin-left: rem(4px);
                 }
             }

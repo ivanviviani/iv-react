@@ -1,10 +1,10 @@
-export interface PictureProps {
+export type PictureProps = {
     className?: string;
     srcSets: PictureSourceProps[];
     src: string;
     alt: string;
     loading?: 'lazy' | 'eager';
-}
+};
 
 function Picture(props: PictureProps) {
     const { className, srcSets, src, alt, loading } = props;

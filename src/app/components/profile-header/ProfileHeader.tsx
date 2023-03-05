@@ -1,4 +1,6 @@
 import { bem } from '../../../utils/ComponentUtils';
+import { BULLET } from '../../../utils/Constants';
+import { separateJSXArrayReducer } from '../../../utils/Utils';
 import Link from '../../atoms/link/Link';
 import Picture from '../../atoms/picture/Picture';
 import { Data } from './Data';
@@ -26,21 +28,26 @@ function ProfileHeader() {
             <div className={cl('bio')}>
                 <h1>{Data.bio.title}</h1>
                 <h2>{Data.bio.bio}</h2>
-                <p>{Data.bio.place}</p>
+                <p>
+                    <Link
+                        {...Data.bio.place.link}
+                        label={Data.bio.place.text}
+                    />{' '}
+                    🌍
+                </p>
             </div>
             <address className={cl('contact-links')}>
                 {Data.contactLinksIntro && (
                     <span>{Data.contactLinksIntro}</span>
                 )}
-                {Data.contactLinks?.map((l, i, a) => {
-                    return (
+                {Data.contactLinks
+                    ?.map((l, i) => (
                         <Link
                             {...l}
-                            bulletAfter={i < a.length - 1}
                             key={i}
                         />
-                    );
-                })}
+                    ))
+                    ?.reduce(separateJSXArrayReducer(BULLET))}
             </address>
         </article>
     );

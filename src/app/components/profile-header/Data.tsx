@@ -46,8 +46,15 @@ export const Data = {
     },
     bio: {
         title: 'Ivan Viviani',
-        bio: 'Adobe AEM Developer & IT Consultant @ Aktive Reply',
-        place: 'Verona, Italy 🌍',
+        bio: 'Adobe AEM Developer & IT Consultant',
+        place: {
+            text: 'Verona, Italy',
+            link: {
+                href: 'https://www.google.com/maps/place/Verona+VR',
+                target: '_blank',
+                title: 'Go to Google Maps',
+            },
+        },
     },
     contactLinksIntro: 'Contact me on:',
     contactLinks: [

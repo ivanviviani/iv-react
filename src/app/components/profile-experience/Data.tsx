@@ -1,19 +1,40 @@
 import { uh } from '../../../utils/ComponentUtils';
+import { currentDateISO } from '../../../utils/Utils';
 
 export const Data = {
     title: 'Experience 👨‍💻',
     experiences: [
         {
-            image: {
-                src: '/assets/images/aktive.jfif',
-                alt: 'Aktive Reply logo',
+            company: {
+                name: 'Aktive Reply',
+                image: {
+                    src: '/assets/images/aktive.jfif',
+                    alt: 'Aktive Reply logo',
+                },
+                link: {
+                    href: 'https://www.reply.com/aktive-reply/en/',
+                    target: '_blank',
+                },
             },
             title: 'IT Consultant - AEM Developer',
-            period: `<time datetime="2020-10">October 2020</time> - <time datetime="${
-                new Date().toISOString().split('T')[0]
-            }">Present</time>`,
-            duration: '<time datetime="P2Y6M">2 years and 6 months</time>',
-            place: 'Verona, Italy 🌍',
+            period: [
+                {
+                    dateTime: '2020-10',
+                    text: 'October 2020',
+                },
+                {
+                    dateTime: currentDateISO(),
+                    text: 'Present',
+                },
+            ],
+            place: {
+                text: 'Verona, Italy',
+                link: {
+                    href: 'https://www.google.com/maps/place/Verona+VR',
+                    target: '_blank',
+                    title: 'Go to Google Maps',
+                },
+            },
             description: `
                 <p>
                     <span style="font-weight: 500">Certified Adobe Experience Manager Sites

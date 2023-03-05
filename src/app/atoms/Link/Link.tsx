@@ -1,14 +1,6 @@
 import { ReactNode } from 'react';
 
-function Link({
-    children,
-    className,
-    label,
-    href,
-    target = '_self',
-    title,
-    bulletAfter = false,
-}: {
+export type LinkProps = {
     children?: ReactNode;
     className?: string;
     label?: string | null;
@@ -16,7 +8,12 @@ function Link({
     target?: string;
     title?: string;
     bulletAfter?: boolean;
-}) {
+};
+
+function Link(props: LinkProps) {
+    const { children, className, label, href, target, title, bulletAfter } =
+        props;
+
     return (
         <a
             {...(className ? { className } : {})}

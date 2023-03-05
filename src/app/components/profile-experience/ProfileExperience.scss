@@ -19,7 +19,12 @@
             display: flex;
             gap: rem(16px);
 
-            & > img:first-child {
+            & > a:first-child {
+                align-self: flex-start;
+            }
+
+            & > img:first-child,
+            & > a:first-child > img {
                 max-width: 80px;
                 aspect-ratio: 1 / 1;
                 object-fit: contain;
@@ -36,9 +41,19 @@
                     font-weight: 500;
                 }
 
+                #{$root}__item-company {
+                    & > a {
+                        text-decoration: underline;
+                    }
+                }
+
                 #{$root}__item-place {
                     font-size: rem(14px);
-                    color: gray;
+                    color: $cl-gray;
+
+                    & > a {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -58,7 +73,7 @@
                 }
 
                 & > li::before {
-                    content: '•';
+                    content: $bullet;
                     font-size: rem(20px);
                     line-height: rem(20px);
                 }

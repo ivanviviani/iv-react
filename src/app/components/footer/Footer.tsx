@@ -1,5 +1,6 @@
 import { bem } from '../../../utils/ComponentUtils';
 import './Footer.scss';
+import { Data } from './Data';
 const cl = bem('s-footer');
 
 function Footer() {
@@ -8,7 +9,11 @@ function Footer() {
             id="footer"
             className={cl()}
         >
-            Copyright @ 2023
+            <div>
+                {Data.copyright && (
+                    <p className={cl('copyright')}>{Data.copyright}</p>
+                )}
+            </div>
         </footer>
     );
 }

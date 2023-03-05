@@ -1,30 +1,21 @@
-import { useCallback, useMemo } from 'react';
-import { bem } from '../../../utils/ComponentUtils';
 import { sanitizeHTML } from '../../../utils/Utils';
-import './Text.scss';
-const cl = bem('c-text');
 
-function Text({
-    extraClasses = '',
-    text = '',
-    textIsRich = false,
-}: {
-    extraClasses?: string;
+export type TextProps = {
+    className?: string;
     text?: string;
     textIsRich?: boolean;
-}) {
-    const rootClasses = `${cl()} ${extraClasses}`.trim();
-    const sanitizedText = useMemo(() => {
-        return sanitizeHTML(text);
-    }, []);
+};
+
+function Text(props: TextProps) {
+    const { className, text, textIsRich } = props;
 
     return textIsRich ? (
         <div
-            className={rootClasses}
-            dangerouslySetInnerHTML={{ __html: sanitizedText }}
+            {...(className ? { className } : {})}
+            dangerouslySetInnerHTML={{ __html: text ? sanitizeHTML(text) : '' }}
         ></div>
     ) : (
-        <p className={rootClasses}>{text}</p>
+        <p {...(className ? { className } : {})}>{text}</p>
     );
 }
 

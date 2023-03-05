@@ -1,5 +1,4 @@
 export function bem(componentRootClass: string): Function {
-    console.log('bem called by ' + componentRootClass);
     return (el: string = '', mod: string = '') => {
         return componentRootClass
             .concat(el ? `__${el}` : '')
