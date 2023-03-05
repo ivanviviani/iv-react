@@ -6,9 +6,9 @@
         position: relative;
     }
 
-    &__cover-image {
-        $height-portrait: 100px;
-        $height-landscape: 150px;
+    &__cover-image > img {
+        $height-portrait: 180px;
+        $height-landscape: 250px;
         display: block;
         width: 100%;
         height: $height-portrait;
@@ -19,7 +19,7 @@
         }
     }
 
-    &__profile-picture {
+    &__profile-picture > img {
         $size-portrait: 100px;
         $size-landscape: 130px;
         display: block;

@@ -1,0 +1,32 @@
+@use '../../../styles/globals' as *;
+
+.c-profile-languages {
+    $root: &;
+    @include containerB(m);
+    padding-top: rem(48px);
+
+    & > h3:first-child {
+        font-size: rem(22px);
+        font-weight: 600;
+    }
+
+    & > ul {
+        padding-top: rem(28px);
+        display: flex;
+        gap: rem(24px);
+    }
+
+    &__item {
+        display: flex;
+        flex-flow: column;
+        gap: rem(4px);
+
+        & > h4 {
+            font-size: rem(18px);
+            font-weight: 500;
+        }
+        & > p {
+            max-width: min($max-legible-chars, 20ch);
+        }
+    }
+}

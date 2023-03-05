@@ -1,7 +1,23 @@
 import { TimeDuration, serializeDuration } from '../../../utils/Utils';
 
-function Time({ duration, label }: { duration: TimeDuration; label: string }) {
-    return <time dateTime={serializeDuration(duration)}>{label}</time>;
+export type TimeProps = {
+    dateTime: TimeDuration | string;
+    text: string;
+};
+
+function Time(props: TimeProps) {
+    const { dateTime, text } = props;
+    return (
+        <time
+            dateTime={
+                typeof dateTime === 'string'
+                    ? dateTime
+                    : serializeDuration(dateTime)
+            }
+        >
+            {text}
+        </time>
+    );
 }
 
 export default Time;

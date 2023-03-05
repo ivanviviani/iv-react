@@ -1,45 +1,54 @@
 import { uh } from '../../../utils/ComponentUtils';
 
 export const Data = {
-    title: 'Certifications',
+    title: 'Certifications 🥇',
     certifications: [
         {
             image: {
-                src: uh(500),
+                src: '/assets/images/adobe.jfif',
                 alt: 'Adobe logo',
             },
             title: 'Adobe Certified Expert - Adobe Experience Manager Sites Developer',
             issuer: {
                 name: 'Adobe',
                 link: {
-                    href: '#',
+                    href: 'https://www.credly.com/organizations/adobe/badges',
                     target: '_blank',
                 },
             },
-            releaseDate: `<time datetime="2022-05-31">May 2022</time>`,
-            expirationDate: `<time datetime="2024-05-31">May 2024</time>`,
+            releaseDate: {
+                dateTime: '2022-05-31',
+                text: 'May 2022',
+            },
+            expirationDate: {
+                dateTime: '2024-05-31',
+                text: 'May 2024',
+            },
             link: {
-                href: '#',
+                href: 'https://www.credly.com/badges/a2e988dd-9ec2-4e62-8a2d-6b729751be2d',
                 target: '_blank',
             },
         },
         {
             image: {
-                src: uh(500),
+                src: '/assets/images/unipd.jfif',
                 alt: 'University of Padua logo',
             },
             title: 'Laurea Magistrale in Ingegneria Informatica',
             issuer: {
                 name: 'Università degli Studi di Padova',
                 link: {
-                    href: '#',
+                    href: 'https://bestr.it/organization/show/65',
                     target: '_blank',
                 },
             },
-            releaseDate: `<time datetime="2022-10">October 2020</time>`,
+            releaseDate: {
+                dateTime: '2022-10',
+                text: 'October 2020',
+            },
             expirationDate: null,
             link: {
-                href: '#',
+                href: 'https://bestr.it/award/show/1z6e1GcVRgSoL87aB4iwMA',
                 target: '_blank',
             },
         },

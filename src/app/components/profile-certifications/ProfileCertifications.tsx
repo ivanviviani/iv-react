@@ -1,7 +1,7 @@
 import { bem } from '../../../utils/ComponentUtils';
-import { sanitizeHTML } from '../../../utils/Utils';
 import Image from '../../atoms/image/Image';
 import Link from '../../atoms/link/Link';
+import Time, { TimeProps } from '../../atoms/time/Time';
 import { Data } from './Data';
 import './ProfileCertifications.scss';
 const cl = bem('c-profile-certifications');
@@ -44,8 +44,8 @@ function ProfileCertificationItem({
     };
     title: string;
     issuer: Issuer;
-    releaseDate: string;
-    expirationDate?: string | null;
+    releaseDate: TimeProps;
+    expirationDate?: TimeProps | null;
     link: {
         href: string;
         target?: string;
@@ -58,7 +58,6 @@ function ProfileCertificationItem({
         title: labels.viewIssuer,
     };
     const imageProps = {
-        className: cl('item-image'),
         ...image,
     };
     const issuerProps = {
@@ -66,14 +65,12 @@ function ProfileCertificationItem({
         labels,
     };
     const releaseDateProps = {
-        className: cl('item-date'),
-        htmlDate: releaseDate,
+        dateTime: releaseDate,
         label: labels.released,
         labels,
     };
     const expirationDateProps = {
-        className: cl('item-date'),
-        htmlDate: expirationDate,
+        dateTime: expirationDate,
         label: labels.expires,
         labels,
     };
@@ -81,21 +78,20 @@ function ProfileCertificationItem({
         className: cl('item-view-credential'),
         ...link,
         label: labels.viewCredential,
+        title: labels.viewCredential,
     };
 
     return (
         <li className={cl('item')}>
+            <Link {...imageLinkProps}>
+                <Image {...imageProps} />
+            </Link>
             <div>
-                <Link {...imageLinkProps}>
-                    <Image {...imageProps} />
-                </Link>
-                <div>
-                    <h4>{title}</h4>
-                    <ProfileCertificationIssuer {...issuerProps} />
-                    <ProfileCertificationDate {...releaseDateProps} />
-                    <ProfileCertificationDate {...expirationDateProps} />
-                    <Link {...viewCredentialProps} />
-                </div>
+                <h4 className={cl('item-title')}>{title}</h4>
+                <ProfileCertificationIssuer {...issuerProps} />
+                <ProfileCertificationDate {...releaseDateProps} />
+                <ProfileCertificationDate {...expirationDateProps} />
+                <Link {...viewCredentialProps} />
             </div>
         </li>
     );
@@ -112,37 +108,26 @@ function ProfileCertificationIssuer({
         ...issuer.link,
         label: issuer.name,
         title: labels.viewIssuer,
+        className: cl('item-issuer'),
     };
 
-    return (
-        <p className={cl('item-issuer')}>
-            <Link {...linkProps} />
-        </p>
-    );
+    return <Link {...linkProps} />;
 }
 
 function ProfileCertificationDate({
     className,
-    htmlDate,
+    dateTime,
     label,
     labels,
 }: {
     className?: string | null;
-    htmlDate?: string | null;
+    dateTime?: TimeProps | null;
     label: string;
     labels: Labels;
 }) {
     return (
         <p {...(className ? { className } : {})}>
-            {label}{' '}
-            {htmlDate && (
-                <span
-                    dangerouslySetInnerHTML={{
-                        __html: sanitizeHTML(htmlDate),
-                    }}
-                ></span>
-            )}
-            {!htmlDate && labels.never}
+            {label} {!!dateTime ? <Time {...dateTime} /> : labels.never}
         </p>
     );
 }

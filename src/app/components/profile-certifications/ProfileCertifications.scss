@@ -2,7 +2,7 @@
 
 .c-profile-certifications {
     $root: &;
-    @extend %layout-item-tbl;
+    @include containerB(m);
     padding-top: rem(48px);
 
     & > h3:first-child {
@@ -10,10 +10,57 @@
         font-weight: 600;
     }
 
+    & > ul {
+        padding-top: rem(28px);
+        display: flex;
+        flex-flow: column;
+        gap: rem(24px);
+    }
+
     &__item {
-        #{$root}__item-image {
-            max-width: 80px;
-            aspect-ratio: 1 / 1;
+        display: flex;
+        gap: rem(16px);
+
+        & > a:first-child {
+            align-self: flex-start;
+
+            & > img {
+                max-width: 80px;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        & > div:last-child {
+            display: flex;
+            flex-flow: column;
+            gap: rem(4px);
+
+            #{$root}__item-title {
+                font-size: rem(18px);
+                font-weight: 500;
+                max-width: min($max-legible-chars, 50ch);
+            }
+
+            #{$root}__item-issuer {
+                width: fit-content;
+                font-size: rem(14px);
+                color: gray;
+                text-decoration: underline;
+            }
+
+            #{$root}__item-view-credential {
+                width: fit-content;
+                font-weight: 600;
+                border: 2px solid #222;
+                border-radius: rem(16px);
+                padding: rem(4px) rem(12px);
+                margin-top: rem(8px);
+
+                &::after {
+                    content: '🚀';
+                    margin-left: rem(4px);
+                }
+            }
         }
     }
 }

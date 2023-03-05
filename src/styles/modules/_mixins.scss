@@ -2,6 +2,29 @@
 @use 'sass:color';
 
 //
+//  CONTAINER
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin containerB($breakpoint, $wpad: $container-wpad) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @include containerW($breakpoint-value, $wpad);
+
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin containerW($wmax: map-get($breakpoints, l), $wpad: $container-wpad) {
+    width: min($wmax, 100% - 2 * $wpad);
+    margin-inline: auto;
+}
+
+//
 //  RESPOND ORIENTATION
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 

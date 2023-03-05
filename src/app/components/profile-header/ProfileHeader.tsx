@@ -1,6 +1,6 @@
 import { bem } from '../../../utils/ComponentUtils';
-import Image from '../../atoms/image/Image';
 import Link from '../../atoms/link/Link';
+import Picture from '../../atoms/picture/Picture';
 import { Data } from './Data';
 import './ProfileHeader.scss';
 const cl = bem('c-profile-header');
@@ -17,7 +17,7 @@ function ProfileHeader() {
         <article className={cl()}>
             <div className={cl('header')}>
                 {enrichedImages?.map((image, i) => (
-                    <Image
+                    <Picture
                         {...image}
                         key={i}
                     />

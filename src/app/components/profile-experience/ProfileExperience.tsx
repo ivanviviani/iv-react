@@ -47,13 +47,11 @@ function ProfileExperienceItem({
                 <div>
                     <h4 className={cl('item-title')}>{title}</h4>
                     <p
-                        className={cl('item-period')}
                         dangerouslySetInnerHTML={{
                             __html: sanitizeHTML(period),
                         }}
                     ></p>
                     <p
-                        className={cl('item-duration')}
                         dangerouslySetInnerHTML={{
                             __html: sanitizeHTML(duration),
                         }}

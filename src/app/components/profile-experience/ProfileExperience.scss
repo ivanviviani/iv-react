@@ -2,7 +2,7 @@
 
 .c-profile-experience {
     $root: &;
-    @extend %layout-item-tbl;
+    @include containerB(m);
     padding-top: rem(48px);
 
     & > h3:first-child {

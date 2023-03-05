@@ -1,11 +1,11 @@
 import { uh } from '../../../utils/ComponentUtils';
 
 export const Data = {
-    title: 'Experience',
+    title: 'Experience 👨‍💻',
     experiences: [
         {
             image: {
-                src: uh(500),
+                src: '/assets/images/aktive.jfif',
                 alt: 'Aktive Reply logo',
             },
             title: 'IT Consultant - AEM Developer',
@@ -13,7 +13,7 @@ export const Data = {
                 new Date().toISOString().split('T')[0]
             }">Present</time>`,
             duration: '<time datetime="P2Y6M">2 years and 6 months</time>',
-            place: 'Verona, Italy',
+            place: 'Verona, Italy 🌍',
             description: `
                 <p>
                     <span style="font-weight: 500">Certified Adobe Experience Manager Sites
