@@ -12,9 +12,9 @@
 
     & > ul {
         padding-top: rem(28px);
-        display: flex;
-        flex-flow: row wrap;
+        display: grid;
         gap: rem(24px);
+        grid-template-columns: 1fr 1fr;
     }
 
     &__item {
