@@ -8,7 +8,10 @@ const cl = bem('c-profile-certifications');
 
 function ProfileCertifications() {
     return (
-        <article className={cl()}>
+        <article
+            id="certifications"
+            className={cl()}
+        >
             <h3>{Data.title}</h3>
             <ul role="list">
                 {Data.certifications?.map((e, i) => (

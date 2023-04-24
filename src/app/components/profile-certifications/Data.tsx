@@ -5,7 +5,30 @@ export const Data = {
     certifications: [
         {
             image: {
-                src: '/assets/images/adobe.jfif',
+                src: '/assets/images/w3cx.png',
+                alt: 'W3Cx',
+            },
+            title: 'edX Verified Certificate for Introduction to Web Accessibility',
+            issuer: {
+                name: 'edX',
+                link: {
+                    href: 'https://www.edx.org/',
+                    target: '_blank',
+                },
+            },
+            releaseDate: {
+                dateTime: '2023-04-08',
+                text: 'April 2023',
+            },
+            expirationDate: null,
+            link: {
+                href: 'https://courses.edx.org/certificates/1a2dcc1f55c748318693022e3e29ab49',
+                target: '_blank',
+            },
+        },
+        {
+            image: {
+                src: '/assets/images/adobe-expert.png',
                 alt: 'Adobe logo',
             },
             title: 'Adobe Certified Expert - Adobe Experience Manager Sites Developer',
@@ -31,12 +54,12 @@ export const Data = {
         },
         {
             image: {
-                src: '/assets/images/unipd.jfif',
-                alt: 'University of Padua logo',
+                src: '/assets/images/md.png',
+                alt: `Master's Degree in Computer Engineering at University of Padova`,
             },
-            title: 'Laurea Magistrale in Ingegneria Informatica',
+            title: `Master's Degree in Computer Engineering`,
             issuer: {
-                name: 'Università degli Studi di Padova',
+                name: 'University of Padova',
                 link: {
                     href: 'https://bestr.it/organization/show/65',
                     target: '_blank',

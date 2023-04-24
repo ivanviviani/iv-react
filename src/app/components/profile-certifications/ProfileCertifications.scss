@@ -27,6 +27,8 @@
             & > img {
                 max-width: 80px;
                 aspect-ratio: 1 / 1;
+                object-fit: contain;
+                object-position: center;
             }
         }
 
@@ -51,14 +53,14 @@
             #{$root}__item-view-credential {
                 width: fit-content;
                 font-weight: 600;
-                border: 2px solid $cl-black;
-                border-radius: rem(16px);
-                padding: rem(4px) rem(12px);
+                text-decoration: underline;
                 margin-top: rem(8px);
 
                 &::after {
                     content: $rocket;
-                    margin-left: rem(4px);
+                    margin-left: rem(2px);
+                    display: inline-block;
+                    text-decoration: none;
                 }
             }
         }

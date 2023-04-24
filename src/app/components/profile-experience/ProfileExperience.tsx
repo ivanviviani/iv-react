@@ -13,7 +13,10 @@ const cl = bem('c-profile-experience');
 
 function ProfileExperience() {
     return (
-        <article className={cl()}>
+        <article
+            id="experience"
+            className={cl()}
+        >
             <h3>{Data.title}</h3>
             <ul role="list">
                 {Data.experiences?.map((e, i) => (

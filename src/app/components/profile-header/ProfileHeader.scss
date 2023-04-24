@@ -99,6 +99,7 @@
         padding-top: rem(16px);
         display: flex;
         gap: rem(8px);
+        flex-wrap: wrap;
         font-size: rem(14px);
 
         @include respond-below(m, 'landscape') {

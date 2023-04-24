@@ -57,30 +57,34 @@
                 }
             }
         }
+    }
 
-        & > div:nth-child(2) {
-            padding-top: rem(20px);
+    &__item-description {
+        padding-top: rem(20px);
 
-            & > ul {
-                padding-top: rem(16px);
-                list-style-position: inside;
-                margin-inline-start: rem(24px);
-                max-width: $max-legible-chars;
+        a {
+            text-decoration: underline;
+        }
 
-                & > li {
-                    display: flex;
-                    gap: rem(8px);
-                }
+        & > ul {
+            padding-top: rem(16px);
+            list-style-position: inside;
+            margin-inline-start: rem(24px);
+            max-width: $max-legible-chars;
 
-                & > li::before {
-                    content: $bullet;
-                    font-size: rem(20px);
-                    line-height: rem(20px);
-                }
+            & > li {
+                display: flex;
+                gap: rem(8px);
+            }
 
-                & > li:not(:last-child) {
-                    padding-bottom: rem(8px);
-                }
+            & > li::before {
+                content: $bullet;
+                font-size: rem(20px);
+                line-height: rem(20px);
+            }
+
+            & > li:not(:last-child) {
+                padding-bottom: rem(8px);
             }
         }
     }

@@ -1,5 +1,5 @@
 export const Data = {
-    title: 'Languages',
+    title: 'Languages 👅',
     languages: [
         {
             countryCode: 'it',

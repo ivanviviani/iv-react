@@ -47,7 +47,7 @@ export const Data = {
     },
     bio: {
         title: 'Ivan Viviani',
-        bio: 'Adobe AEM Developer & IT Consultant',
+        bio: 'IT Consultant | Adobe Experience Manager (AEM) Developer',
         place: {
             text: 'Verona, Italy',
             link: {

@@ -37,31 +37,24 @@ export const Data = {
             },
             description: `
                 <p>
-                    <span style="font-weight: 500">Certified Adobe Experience Manager Sites
-                    developer expert</span> specializzato in:
+                    <span style="font-weight: 500">Certified <a href="https://business.adobe.com/products/experience-manager/adobe-experience-manager.html" target="_blank">Adobe Experience Manager</a>
+                    developer expert</span>, specialised in:
                 </p>
                 <ul role="list">
                     <li>
-                        <p>Template di pagina AEM con responsive grid e
-                        policy</p>
+                        <p>AEM page templates with responsive grids and component policies</p>
                     </li>
                     <li>
-                        <p>Componenti AEM lato frontend (HTML,
-                        CSS/Sass, JavaScript) e lato server (uso del
-                        linguaggio Sightly/HTL, dialog Granite UI,
-                        modelli Sling, servizi OSGi e servlet)</p>
+                        <p>AEM components on frontend side (HTML, CSS/Sass and JavaScript) and server side (Sightly HTL, Granite UI dialogs, Apache Sling models, OSGi services and servlets, JCR operations)</p>
                     </li>
                     <li>
-                        <p>Personalizzazione di componenti Granite per
-                        una migliore configurazione dei componenti
-                        AEM</p>
+                        <p>Granite UI components customisation to better configure AEM components</p>
                     </li>
-                    <li><p>Configurazione di dispatcher AEM</p></li>
+                    <li><p>Apache dispatcher configuration for AEM sites (domain setup, farms and vhosts, rewrite rules and redirects, caching rules, error pages handling)</p></li>
                     <li>
-                        <p>Regole di accessibilità WCAG e adattamento
-                        di siti web</p>
+                        <p><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG</a> web accessibility guidelines and website adaptation (<a href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank">WAI-ARIA</a> and accessibility functionality in JavaScript)</p>
                     </li>
-                    <li><p>Supporto tecnico al team editoriale</p></li>
+                    <li><p>Technical support to AEM site editors</p></li>
                 </ul>
             `,
         },
