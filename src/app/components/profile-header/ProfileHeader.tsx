@@ -3,6 +3,7 @@ import { BULLET } from '../../../utils/Constants';
 import { separateJSXArrayReducer } from '../../../utils/Utils';
 import Link from '../../atoms/link/Link';
 import Picture from '../../atoms/picture/Picture';
+import NyanFestival from '../nyan-festival/NyanFestival';
 import { Data } from './Data';
 import './ProfileHeader.scss';
 const cl = bem('c-profile-header');
@@ -14,7 +15,7 @@ const enrichedImages = [
     },
 ];
 
-function ProfileHeader() {
+function ProfileHeader(props: { withNyanFestival?: boolean }) {
     return (
         <article
             className={cl()}
@@ -31,6 +32,11 @@ function ProfileHeader() {
                     />
                 ))}
             </div>
+            {props.withNyanFestival && (
+                <div className={cl('nyan-festival')}>
+                    <NyanFestival />
+                </div>
+            )}
             <div
                 id="bio"
                 className={cl('bio')}

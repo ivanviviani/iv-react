@@ -124,4 +124,15 @@
             }
         }
     }
+
+    &__nyan-festival {
+        @extend %layout-item-tbl;
+        padding-top: rem(16px);
+        margin-bottom: rem(-32px);
+
+        #nyan-festival {
+            display: block;
+            margin-left: auto;
+        }
+    }
 }

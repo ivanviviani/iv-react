@@ -11,7 +11,7 @@ function PageHome() {
         <>
             <SkipLinks />
             <LayoutBasic wrapMain={true}>
-                <ProfileHeader />
+                <ProfileHeader withNyanFestival={true} />
                 <ProfileExperience />
                 <ProfileCertifications />
                 <ProfileLanguages />

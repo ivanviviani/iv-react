@@ -1,0 +1,12 @@
+@use '../../../styles/globals' as *;
+
+.c-nyan-festival {
+    $size: rem(32px);
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    font-size: rem(16px);
+    line-height: rem(16px);
+    text-align: center;
+    vertical-align: bottom;
+}

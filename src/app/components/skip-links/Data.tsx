@@ -1,14 +1,9 @@
 export const Data = {
     skipLinks: [
         {
-            href: '#main',
+            href: '#bio',
             label: 'Skip to main content',
             title: 'Skip to main content',
-        },
-        {
-            href: '#bio',
-            label: 'Skip to bio',
-            title: 'Skip to bio',
         },
         {
             href: '#contacts',
