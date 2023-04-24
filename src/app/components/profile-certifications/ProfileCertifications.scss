@@ -14,7 +14,7 @@
         padding-top: rem(28px);
         display: flex;
         flex-flow: column;
-        gap: rem(24px);
+        gap: rem(32px);
     }
 
     &__item {
@@ -52,13 +52,14 @@
 
             #{$root}__item-view-credential {
                 width: fit-content;
+                width: -moz-fit-content;
                 font-weight: 600;
                 text-decoration: underline;
-                margin-top: rem(8px);
+                margin-top: rem(4px);
 
                 &::after {
                     content: $rocket;
-                    margin-left: rem(2px);
+                    margin-left: rem(4px);
                     display: inline-block;
                     text-decoration: none;
                 }

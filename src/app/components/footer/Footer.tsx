@@ -11,9 +11,13 @@ function Footer() {
         <footer
             id="footer"
             className={cl()}
+            aria-label="Footer"
         >
             <div>
-                <p className={cl('contact-links')}>
+                <p
+                    className={cl('contact-links')}
+                    aria-label="Contact links"
+                >
                     {Data.contactLinks
                         ?.map((l, i) => (
                             <Link
@@ -24,7 +28,12 @@ function Footer() {
                         ?.reduce(separateJSXArrayReducer(BULLET))}
                 </p>
                 {Data.copyright && (
-                    <p className={cl('copyright')}>{Data.copyright}</p>
+                    <p
+                        className={cl('copyright')}
+                        aria-label="Copyright"
+                    >
+                        {Data.copyright}
+                    </p>
                 )}
             </div>
         </footer>

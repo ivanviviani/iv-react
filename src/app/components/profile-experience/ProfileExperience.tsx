@@ -16,9 +16,13 @@ function ProfileExperience() {
         <article
             id="experience"
             className={cl()}
+            aria-label="Experience"
         >
             <h3>{Data.title}</h3>
-            <ul role="list">
+            <ul
+                role="list"
+                aria-label="Experiences list"
+            >
                 {Data.experiences?.map((e, i) => (
                     <ProfileExperienceItem
                         {...e}

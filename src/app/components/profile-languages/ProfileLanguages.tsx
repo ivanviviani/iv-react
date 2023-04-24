@@ -6,9 +6,16 @@ const cl = bem('c-profile-languages');
 
 function ProfileLanguages() {
     return (
-        <article className={cl()}>
+        <article
+            id="languages"
+            className={cl()}
+            aria-label="Languages"
+        >
             <h3>{Data.title}</h3>
-            <ul role="list">
+            <ul
+                role="list"
+                aria-label="Languages list"
+            >
                 {Data.languages?.map((l, i) => (
                     <ProfileLanguageItem
                         {...l}

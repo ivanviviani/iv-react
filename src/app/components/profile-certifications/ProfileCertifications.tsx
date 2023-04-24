@@ -11,9 +11,13 @@ function ProfileCertifications() {
         <article
             id="certifications"
             className={cl()}
+            aria-label="Certifications"
         >
             <h3>{Data.title}</h3>
-            <ul role="list">
+            <ul
+                role="list"
+                aria-label="Certifications list"
+            >
                 {Data.certifications?.map((e, i) => (
                     <ProfileCertificationItem
                         {...e}

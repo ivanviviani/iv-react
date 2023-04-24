@@ -16,8 +16,14 @@ const enrichedImages = [
 
 function ProfileHeader() {
     return (
-        <article className={cl()}>
-            <div className={cl('header')}>
+        <article
+            className={cl()}
+            aria-label="Profile header"
+        >
+            <div
+                className={cl('header')}
+                aria-label="Cover image and profile picture"
+            >
                 {enrichedImages?.map((image, i) => (
                     <Picture
                         {...image}
@@ -25,7 +31,11 @@ function ProfileHeader() {
                     />
                 ))}
             </div>
-            <div className={cl('bio')}>
+            <div
+                id="bio"
+                className={cl('bio')}
+                aria-label="Bio"
+            >
                 <h1>{Data.bio.title}</h1>
                 <h2>{Data.bio.bio}</h2>
                 <p>
@@ -36,7 +46,11 @@ function ProfileHeader() {
                     🌍
                 </p>
             </div>
-            <address className={cl('contact-links')}>
+            <address
+                id="contacts"
+                className={cl('contact-links')}
+                aria-label="Contact links"
+            >
                 {Data.contactLinksIntro && (
                     <span>{Data.contactLinksIntro}</span>
                 )}

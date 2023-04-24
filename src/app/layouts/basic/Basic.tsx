@@ -27,6 +27,7 @@ function LayoutBasic({
     return wrapMain ? (
         <main
             id="main"
+            aria-label="Main content"
             {...rootProps}
         >
             {childElements}
@@ -42,6 +43,7 @@ function wrapLayoutItem(child?: ReactNode, index?: number) {
         <section
             key={`${cl('item')}--${index}`}
             className={cl('item')}
+            role="presentation"
         >
             {child}
         </section>
