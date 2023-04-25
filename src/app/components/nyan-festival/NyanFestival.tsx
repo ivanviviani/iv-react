@@ -1,4 +1,4 @@
-import Nyan from 'nyan-cat-festival/index';
+import Nyan from 'nyan-cat-festival/src';
 import './NyanFestival.scss';
 import { bem } from '../../../utils/ComponentUtils';
 const cl = bem('c-nyan-festival');
